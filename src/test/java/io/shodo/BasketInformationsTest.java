@@ -1,11 +1,9 @@
 package io.shodo;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BasketInformationsTest {
 
@@ -26,7 +24,16 @@ class BasketInformationsTest {
     void basket_should_contain_added_product() {
         BasketInformations basketInformations = new BasketInformations();
         basketInformations
-                .addProductToBasket("Seitan", 1, false);
-        assertThat(basketInformations.isBasketContains("Seitan")).isTrue();
+                .addProductToBasket("Carrot", 1, false);
+        assertThat(basketInformations.isBasketContains("Carrot")).isTrue();
+    }
+
+    @Test
+    @Disabled("to be fixed")
+    void basket_should_contain_added_product_even_when_names_are_not_the_same_instance() {
+        BasketInformations basketInformations = new BasketInformations();
+        basketInformations
+                .addProductToBasket(new String("Tofu"), 1, false);
+        assertThat(basketInformations.isBasketContains("Tofu")).isTrue();
     }
 }
