@@ -50,4 +50,12 @@ class BasketInformationsTest {
         basketInformations.addProductToBasket("Shiitake", 100, false);
         assertThat(basketInformations.getBasketPrice(false)).isEqualTo(0L);
     }
+
+    @Test
+    void the_price_of_the_basket_is_the_sum_of_the_price_of_the_products() {
+        BasketInformations basketInformations = new BasketInformations();
+        basketInformations.addProductToBasket("Chocolate", 2, false);
+        basketInformations.addProductToBasket("Shiitake", 100, false);
+        assertThat(basketInformations.getBasketPrice(false)).isEqualTo(102L);
+    }
 }
