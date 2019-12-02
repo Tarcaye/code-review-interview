@@ -19,28 +19,11 @@ class BasketInformationsTest {
     }
 
     @Test
-    @Disabled("To be fixed")
-    void baskets_should_be_independant() {
-        new BasketInformations()
-                .addProductToBasket("Seitan", 1, false);
-        assertThat(new BasketInformations().isBasketContains("Seitan")).isFalse();
-    }
-
-    @Test
     void basket_should_contain_added_product() {
         BasketInformations basketInformations = new BasketInformations();
         basketInformations
                 .addProductToBasket("Carrot", 1, false);
         assertThat(basketInformations.isBasketContains("Carrot")).isTrue();
-    }
-
-    @Test
-    @Disabled("to be fixed")
-    void basket_should_contain_added_product_even_when_names_are_not_the_same_instance() {
-        BasketInformations basketInformations = new BasketInformations();
-        basketInformations
-                .addProductToBasket(new String("Tofu"), 1, false);
-        assertThat(basketInformations.isBasketContains("Tofu")).isTrue();
     }
 
     @Test
@@ -79,11 +62,37 @@ class BasketInformationsTest {
     }
 
     @Test
+    @Disabled("To be fixed")
+    void baskets_should_be_independent() {
+        new BasketInformations()
+                .addProductToBasket("Seitan", 1, false);
+        assertThat(new BasketInformations().isBasketContains("Seitan")).isFalse();
+    }
+
+    @Test
+    @Disabled("to be fixed")
+    void basket_should_contain_added_product_even_when_names_are_not_the_same_instance() {
+        BasketInformations basketInformations = new BasketInformations();
+        basketInformations
+                .addProductToBasket(new String("Tofu"), 1, false);
+        assertThat(basketInformations.isBasketContains("Tofu")).isTrue();
+    }
+
+    @Test
     @Disabled("to be fixed")
     void can_contain_the_same_product_multiple_times() {
         BasketInformations basketInformations = new BasketInformations();
         basketInformations.addProductToBasket("Tofu", 20, false);
         basketInformations.addProductToBasket("Tofu", 20, false);
         assertThat(basketInformations.getBasketPrice(false)).isEqualTo(40L);
+    }
+
+    @Test
+    @Disabled("to be fixed")
+    void total_price_should_not_be_negative() {
+        BasketInformations basketInformations = new BasketInformations();
+        basketInformations.addProductToBasket("Tofu", 20, false);
+        basketInformations.addProductToBasket(null, null, true);
+        assertThat(basketInformations.getBasketPrice(false)).isEqualTo(0L);
     }
 }
