@@ -1,11 +1,17 @@
 package io.shodo;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BasketInformationsTest {
+
+    @BeforeEach
+    void setUp() {
+        new BasketInformations().resetBasket();
+    }
 
     @Test
     void a_new_basket_is_empty() {
@@ -35,5 +41,13 @@ class BasketInformationsTest {
         basketInformations
                 .addProductToBasket(new String("Tofu"), 1, false);
         assertThat(basketInformations.isBasketContains("Tofu")).isTrue();
+    }
+
+    @Test
+    void basket_with_promo_code_have_100€_discount() {
+        BasketInformations basketInformations = new BasketInformations();
+        basketInformations.addProductToBasket(null, null, true);
+        basketInformations.addProductToBasket("Shiitake", 100, false);
+        assertThat(basketInformations.getBasketPrice(false)).isEqualTo(0L);
     }
 }
