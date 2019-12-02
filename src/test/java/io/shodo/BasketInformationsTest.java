@@ -9,7 +9,7 @@ class BasketInformationsTest {
 
     @Test
     void a_new_basket_is_empty() {
-        assertThat(new BasketInformations().getMap()).isEmpty();
+        assertThat(new BasketInformations().getBasketPrice(false)).isEqualTo(0L);
     }
 
     @Test
@@ -17,7 +17,7 @@ class BasketInformationsTest {
     void baskets_should_be_independant() {
         new BasketInformations()
                 .addProductToBasket("Seitan", 1, false);
-        assertThat(new BasketInformations().getMap()).isEmpty();
+        assertThat(new BasketInformations().isBasketContains("Seitan")).isFalse();
     }
 
     @Test
