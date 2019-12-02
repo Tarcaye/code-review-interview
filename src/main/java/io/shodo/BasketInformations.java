@@ -12,7 +12,7 @@ public class BasketInformations {
     static HashMap<String, Integer> map = new HashMap<String, Integer>();
 
     // The fact that the basket has promo code
-    private static boolean codeDePromotion = false;
+    private boolean codeDePromotion = false;
 
     public void addProductToBasket(String product, Integer price, boolean isPromoCode) {
         if (isPromoCode) {

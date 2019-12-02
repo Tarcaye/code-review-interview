@@ -100,11 +100,9 @@ class BasketInformationsTest {
     }
 
     @Test
-    @Disabled("To be fixed")
-    void baskets_promotions_should_be_independent() {
+    void baskets_promotions_are_independent() {
         BasketInformations discountBasket = new BasketInformations();
         discountBasket.addProductToBasket(null, null, true);
-
 
         BasketInformations basketInformations = new BasketInformations();
         basketInformations.addProductToBasket("Tofu", 200, false);
