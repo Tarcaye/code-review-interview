@@ -77,4 +77,13 @@ class BasketInformationsTest {
         basketToAdd.addProductToBasket("Water", 1000, false);
         assertThat(basketInformations.getBasketPrice(false)).isEqualTo(1122L);
     }
+
+    @Test
+    @Disabled("to be fixed")
+    void can_contain_the_same_product_multiple_times() {
+        BasketInformations basketInformations = new BasketInformations();
+        basketInformations.addProductToBasket("Tofu", 20, false);
+        basketInformations.addProductToBasket("Tofu", 20, false);
+        assertThat(basketInformations.getBasketPrice(false)).isEqualTo(40L);
+    }
 }
