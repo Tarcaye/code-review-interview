@@ -52,12 +52,15 @@ class BasketInformationsTest {
 
     @Test
     void adding_two_baskets_is_the_sum_of_the_baskets() {
-        BasketInformations basketInformations = new BasketInformations();
-        basketInformations.addProductToBasket("Chocolate", 2, false);
-        basketInformations.addProductToBasket("Shiitake", 100, false);
         BasketInformations basketToAdd = new BasketInformations();
         basketToAdd.addProductToBasket("Tofu", 20, false);
         basketToAdd.addProductToBasket("Water", 1000, false);
+
+        BasketInformations basketInformations = new BasketInformations();
+        basketInformations.addProductToBasket("Chocolate", 2, false);
+        basketInformations.addProductToBasket("Shiitake", 100, false);
+        basketInformations.mixWithBasket(basketToAdd);
+
         assertThat(basketInformations.getBasketPrice(false)).isEqualTo(1122L);
     }
 
