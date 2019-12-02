@@ -65,7 +65,6 @@ class BasketInformationsTest {
     }
 
     @Test
-    @Disabled("To be fixed")
     void baskets_should_be_independent() {
         new BasketInformations()
                 .addProductToBasket("Seitan", 1, false);
