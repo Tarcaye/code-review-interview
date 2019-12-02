@@ -21,4 +21,12 @@ class BasketInformationsTest {
                 .addProductToBasket("Seitan", 1, false);
         assertThat(new BasketInformations().getMap()).isEmpty();
     }
+
+    @Test
+    void basket_should_contain_added_product() {
+        BasketInformations basketInformations = new BasketInformations();
+        basketInformations
+                .addProductToBasket("Seitan", 1, false);
+        assertThat(basketInformations.isBasketContains("Seitan")).isTrue();
+    }
 }
