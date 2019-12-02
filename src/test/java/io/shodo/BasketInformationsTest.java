@@ -98,4 +98,16 @@ class BasketInformationsTest {
         basketInformations.addProductToBasket(null, null, true);
         assertThat(basketInformations.getBasketPrice(false)).isEqualTo(0L);
     }
+
+    @Test
+    @Disabled("To be fixed")
+    void baskets_promotions_should_be_independent() {
+        BasketInformations discountBasket = new BasketInformations();
+        discountBasket.addProductToBasket(null, null, true);
+
+
+        BasketInformations basketInformations = new BasketInformations();
+        basketInformations.addProductToBasket("Tofu", 200, false);
+        assertThat(basketInformations.getBasketPrice(false)).isEqualTo(200);
+    }
 }
