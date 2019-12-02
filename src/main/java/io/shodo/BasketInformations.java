@@ -22,6 +22,14 @@ public class BasketInformations {
         }
     }
 
+    public boolean isCodeDePromotion() {
+        return codeDePromotion;
+    }
+
+    public HashMap<String, Integer> getMap() {
+        return map;
+    }
+
     public Long getBasketPrice(boolean inCents) {
         Integer v = 0;
         for (String s : map.keySet()) {
