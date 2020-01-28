@@ -11,8 +11,15 @@ public class BasketInformations {
     // The product of the basket
     static HashMap<String, Integer> map = new HashMap<String, Integer>();
 
-    public void addProductToBasket(String product, Integer price) {
+    // The fact that the basket has promo code
+    private static boolean codeDePromotion = false;
+
+    public void addProductToBasket(String product, Integer price, boolean isPromoCode) {
+        if (isPromoCode) {
+            codeDePromotion = true;
+        } else {
             map.put(product, price);
+        }
     }
 
     public Long getBasketPrice(boolean inCents) {
@@ -20,11 +27,15 @@ public class BasketInformations {
         for (String s : map.keySet()) {
             v += map.get(s);
         }
+        if (codeDePromotion) {
+            v -= 100;
+        }
         return inCents ? v * 100 : Long.valueOf(v);
     }
 
     public void resetBasket() {
         buyBasket();
+        codeDePromotion = false;
     }
 
     public void buyBasket() {
