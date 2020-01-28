@@ -5,5 +5,5 @@ Try to spot if there's something wrong about that code.
 
 ### First version :
  
-[Basket code without tests](https://github.com/Tarcaye/shodo-pr/pull/1/files)
+[Basket code without tests](https://github.com/Tarcaye/code-review-interview/pull/1/files)
 
