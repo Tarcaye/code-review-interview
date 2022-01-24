@@ -9,8 +9,16 @@ export class BasketInformations {
     // The product of the basket
     static map: Map<string, number> = new Map<string, number>()
 
-    addProductToBasket(product: string, price: number) {
-        BasketInformations.map.set(product, price)
+    // The fact that the basket has promo code
+    static codeDePromotion: boolean = false
+
+
+    addProductToBasket(product: string, price: number, promoCode: boolean = false) {
+        if (promoCode) {
+            BasketInformations.codeDePromotion = true
+        } else {
+            BasketInformations.map.set(product, price)
+        }
     }
 
     getBasketPrice(inCents: boolean): Number {
@@ -18,11 +26,15 @@ export class BasketInformations {
         for (let s of Array.from(BasketInformations.map.values())) {
             v += s;
         }
+        if (BasketInformations.codeDePromotion) {
+            v -= 100;
+        }
         return inCents ? new Number(v * 100) : Number(v)
     }
 
     resetBasket() {
         this.buyBasket();
+        BasketInformations.codeDePromotion = false;
     }
 
     buyBasket() {
