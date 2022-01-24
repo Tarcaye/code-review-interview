@@ -12,6 +12,6 @@ Try to spot if there's something wrong about that code.
 
 ### Javascript :
 
-[Basket code without tests](https://github.com/Tarcaye/code-review-interview/pull/1/files)
+[Basket code without enough tests](https://github.com/Tarcaye/code-review-interview/pull/3/files)
 
-[Basket code promo feature without tests](https://github.com/Tarcaye/code-review-interview/pull/2/files)
+[Basket code promo feature without tests](https://github.com/Tarcaye/code-review-interview/pull/4/files)
