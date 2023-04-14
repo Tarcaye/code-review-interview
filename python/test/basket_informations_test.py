@@ -10,5 +10,5 @@ class TestBasketInformations(unittest.TestCase):
         self.assertEqual(self.basket.get_basket_price(False), 0)
 
     def test_1000_otherwise(self):
-        self.basket.add_product_to_basket("product", 1000)
+        self.basket.add_product_to_basket("product", 1000, False)
         self.assertEqual(self.basket.get_basket_price(False), 1000)
