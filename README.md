@@ -25,3 +25,7 @@ Try to spot if there's something wrong about that code.
 ### Python
 
 [Basket code promo feature without tests](https://github.com/Tarcaye/code-review-interview/pull/11/files)
+
+### Python
+
+[Basket code promo feature without tests](https://github.com/Tarcaye/code-review-interview/pull/12/files)
